@@ -1,10 +1,21 @@
 import React from 'react'
 
-function RealEstate() {
+function RealEstate({data}) {
   return (
-    <div>
-        
-    </div>
+        <div>
+            
+
+
+
+
+        {/* {data.map((asset, index) => (
+          <>
+            <div key={index}>
+              <p>{asset.address}</p>
+            </div>
+          </>
+        ))} */}
+      </div>
   )
 }
 
