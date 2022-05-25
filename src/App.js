@@ -1,23 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useEffect, useState} from 'react';
+import properties from './transactions.json';
+import RealEstate from './components/real-estate'
 
 function App() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    loadData();
+    console.log(data);
+  }, [])
+
+  const loadData = () => {
+    setData(properties.properties);
+  }
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        {data.map((asset, index) => (
+          <>
+            <div key={index}>
+              <p>{asset}</p>
+            </div>
+          </>
+        ))}
+      </div>
     </div>
   );
 }
